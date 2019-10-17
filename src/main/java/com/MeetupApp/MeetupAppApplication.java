@@ -1,4 +1,4 @@
-package com.MeetupApp.MeetupApp;
+package com.MeetupApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
