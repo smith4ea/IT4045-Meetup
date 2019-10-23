@@ -1,18 +1,27 @@
 package com.MeetupApp;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.MeetupApp.dto.MeetingDTO;
+import com.MeetupApp.service.IMeetingService;
+
 public class MeetupAppController {
+	
+	@Autowired
+	private IMeetingService meetingServiceStub;
+	
 	@RequestMapping(value="/meeting/{meetingId}", method=RequestMethod.GET)
-	public String getMeeting(@PathVariable int meetingId) {
-		return "NOT IMPLEMENTED";
+	public MeetingDTO getMeeting(@PathVariable int meetingId) {
+		MeetingDTO meeting = meetingServiceStub.GetMeeting(meetingId);
+		return meeting;
 	}
 	
 	@RequestMapping(value="/meeting", method=RequestMethod.POST)
 	public String createMeeting() {
-		// TODO: Get new meeting object from body
+		// TODO: Get meeting object from body
 		return "NOT IMPLEMENTED";
 	}
 	
@@ -24,12 +33,15 @@ public class MeetupAppController {
 	
 	@RequestMapping(value="/manage-meeting-user/{meetingId}/{userId}", method=RequestMethod.DELETE)
 	public String deleteUserMeeting(@PathVariable int meetingId, @PathVariable int userId) {
+		// TODO: Move logic to service?
+		MeetingDTO meeting = meetingServiceStub.GetMeeting(meetingId);
+		meeting.DeleteUser(userId);
 		return "NOT IMPLEMENTED";
 	}
 	
-	@RequestMapping(value="/meeting", method=RequestMethod.POST)
+	@RequestMapping(value="/find-meetings", method=RequestMethod.POST)
 	public String findMeeting() {
-		// TODO: Get search meeting object from body
+		// TODO: Get search object from body
 		return "NOT IMPLEMENTED";
 	}
 }
