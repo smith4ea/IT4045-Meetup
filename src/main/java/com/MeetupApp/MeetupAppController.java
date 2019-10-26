@@ -24,4 +24,14 @@ public class MeetupAppController {
 		
 		return "start";
 	}
+	/**
+	 * Potential function to return the meetings that a specific user has
+	 * @return
+	 */
+
+	@RequestMapping(value ="/Meetings/{userID}", method=RequestMethod.POST)
+	public String listMeetings() {
+		//Gather meetings based on the userID
+		return "ToDo";
+	}
 }

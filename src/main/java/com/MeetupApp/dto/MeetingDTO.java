@@ -8,6 +8,18 @@ public class MeetingDTO {
 	String Location;
 	UserDTO Organizer;
 	UserDTO[] Attendees;
+	int meetingID;
+	
+	/**
+	 * This will be a more descriptive ID value. 
+	 * @return
+	 */
+	public int getMeetingID() {
+		return meetingID;
+	}
+	public void setMeetingID(int meetingID) {
+		meetingID = meetingID;
+	}
 	
 	public int getId() {
 		return Id;

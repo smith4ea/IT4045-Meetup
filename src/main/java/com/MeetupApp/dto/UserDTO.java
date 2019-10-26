@@ -6,6 +6,17 @@ public class UserDTO {
 	String lastName;
 	String email;
 	String phone;
+	int userID;
+	/**
+	 * using a more desciptive value will help in the future
+	 * @return
+	 */
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		userID= userID;
+	}
 	
 	public int getId() {
 		return Id;
