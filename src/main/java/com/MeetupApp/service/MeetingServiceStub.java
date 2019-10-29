@@ -5,6 +5,11 @@ import com.MeetupApp.dto.MeetingSearchParamsDTO;
 
 public class MeetingServiceStub implements IMeetingService {
 
+	/**
+	 * Java doc to inform what the service stub is doing
+	 * This is the service stub that implements meeting creations,
+	 * finding specific meetings, and getting meetings. More to be added
+	 */
 	@Override
 	public void CreateMeeting(MeetingDTO meeting) {
 		// TODO Auto-generated method stub
