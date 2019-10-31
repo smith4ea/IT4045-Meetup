@@ -1,11 +1,11 @@
 package com.MeetupApp.dto;
 
 public class MeetingDTO {
-	int Id;
-	String Title;
-	String Description;
-	String LocalDateTime;
-	String Location;
+	int Id = null;
+	String Title = null;
+	String Description = null;
+	String LocalDateTime = null;
+	String Location = null;
 	UserDTO Organizer;
 	UserDTO[] Attendees;
 	
