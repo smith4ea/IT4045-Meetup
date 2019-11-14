@@ -10,13 +10,12 @@ public class MeetingServiceStub implements IMeetingService {
 
 	@Override
 	public void CreateMeeting(MeetingDTO meeting) {
-		// TODO Auto-generated method stub
-		
+		// TODO Proper Implementation
 	}
 
 	@Override
 	public MeetingDTO GetMeeting(int meetingId) {
-		// TODO Auto-generated method stub
+		// TODO Proper Implementation
 		return new MeetingDTO();
 	}
 
