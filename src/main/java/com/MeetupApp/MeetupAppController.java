@@ -4,10 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.MeetupApp.dto.MeetingDTO;
+import com.MeetupApp.dto.MeetingSearchParamsDTO;
+import com.MeetupApp.dto.UserDTO;
 import com.MeetupApp.service.IMeetingService;
 
+@RestController
 public class MeetupAppController {
 	
 	@Autowired
@@ -20,28 +24,29 @@ public class MeetupAppController {
 	}
 	
 	@RequestMapping(value="/meeting", method=RequestMethod.POST)
-	public String createMeeting() {
+	public void createMeeting() {
 		// TODO: Get meeting object from body
-		return "NOT IMPLEMENTED";
+		meetingServiceStub.CreateMeeting(new MeetingDTO());
 	}
 	
 	@RequestMapping(value="/manage-meeting-user/{meetingId}", method=RequestMethod.POST)
-	public String addUserMeeting(@PathVariable int meetingId) {
+	public void addUserMeeting(@PathVariable int meetingId) {
 		// TODO: Get user object from body
-		return "NOT IMPLEMENTED";
+		MeetingDTO meeting = meetingServiceStub.GetMeeting(meetingId);
+		meeting.AddUser(new UserDTO());
 	}
 	
 	@RequestMapping(value="/manage-meeting-user/{meetingId}/{userId}", method=RequestMethod.DELETE)
-	public String deleteUserMeeting(@PathVariable int meetingId, @PathVariable int userId) {
-		// TODO: Move logic to service?
+	public void deleteUserMeeting(@PathVariable int meetingId, @PathVariable int userId) {
+		// TODO: Proper implementation
 		MeetingDTO meeting = meetingServiceStub.GetMeeting(meetingId);
 		meeting.DeleteUser(userId);
-		return "NOT IMPLEMENTED";
 	}
 	
 	@RequestMapping(value="/find-meetings", method=RequestMethod.POST)
-	public String findMeeting() {
+	public MeetingDTO[] findMeeting() {
 		// TODO: Get search object from body
-		return "NOT IMPLEMENTED";
+		MeetingDTO[] meetings = meetingServiceStub.FindMeetings(new MeetingSearchParamsDTO());
+		return meetings;
 	}
 }
