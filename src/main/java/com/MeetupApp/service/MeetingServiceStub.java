@@ -21,7 +21,7 @@ public class MeetingServiceStub implements IMeetingService {
 		m.setId(meetingId);
 		m.setTitle("Placeholder Meeting Title");
 		m.setDescription("Placeholder Meeting Description");
-		m.setLocalDateTime("12:00:00 11/19/2019");
+		m.setLocalDateTime("11/19/2019 12:00PM");
 		m.setLocation("University of Cincinnati");
 		
 		UserDTO o = new UserDTO();

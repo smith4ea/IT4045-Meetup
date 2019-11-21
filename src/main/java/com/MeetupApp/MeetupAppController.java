@@ -1,26 +1,31 @@
 package com.MeetupApp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.MeetupApp.dto.MeetingDTO;
 import com.MeetupApp.dto.MeetingSearchParamsDTO;
 import com.MeetupApp.dto.UserDTO;
 import com.MeetupApp.service.IMeetingService;
 
-@RestController
+@Controller
 public class MeetupAppController {
 	
 	@Autowired
 	private IMeetingService meetingServiceStub;
 	
 	@RequestMapping(value="/meeting/{meetingId}", method=RequestMethod.GET)
-	public MeetingDTO getMeeting(@PathVariable int meetingId) {
+	public ModelAndView getMeeting(@PathVariable int meetingId) {
+		ModelAndView modelAndView = new ModelAndView();
 		MeetingDTO meeting = meetingServiceStub.GetMeeting(meetingId);
-		return meeting;
+		modelAndView.setViewName("meeting");
+		modelAndView.addObject("meeting", meeting);
+
+		return modelAndView;
 	}
 	
 	@RequestMapping(value="/meeting", method=RequestMethod.POST)
