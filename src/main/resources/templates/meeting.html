@@ -15,10 +15,11 @@
 
 <body>
     <div class="jumbotron">
-        <h1 class="display-4" th:text="${meeting.Title}"></h1>
-        <p class="lead" th:text="${meeting.Description}">
+        <h1 class="display-4" th:text="${meeting.getTitle()}"></h1>
+        <p class="lead" th:text="${meeting.getDescription()}">
         <hr class="my-4">
-        <p th:text="'This meeting will take place on ' + ${meeting.LocalDateTime} + ' at ' ${meeting.Location}"></p>
+        <p th:text="${meeting.getLocation()}"></p>
+        <p th:text="${meeting.getLocalDateTime()}"></p>
         <a class="btn btn-primary btn-lg" href="#" role="button">Sign Up</a>
     </div>
 </body>
