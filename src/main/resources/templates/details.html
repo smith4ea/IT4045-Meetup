@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Meetup App</title>
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4" th:text="${meeting.Title}"></h1>
+        <p class="lead" th:text="${meeting.Description}">
+        <hr class="my-4">
+        <p th:text="'This meeting will take place on ' + ${meeting.LocalDateTime} + ' at ' ${meeting.Location}"></p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Sign Up</a>
+    </div>
+</body>
