@@ -18,6 +18,13 @@ public class MeetupAppController {
 	@Autowired
 	private IMeetingService meetingServiceStub;
 	
+	
+	// Maybe add read method 
+	@RequestMapping(value="/meeting", method=RequestMethod.GET)
+	public String read() {
+		return "meeting";
+	}
+	
 	@RequestMapping(value="/meeting/{meetingId}", method=RequestMethod.GET)
 	public ModelAndView getMeeting(@PathVariable int meetingId) {
 		ModelAndView modelAndView = new ModelAndView();
