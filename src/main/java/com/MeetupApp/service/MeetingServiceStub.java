@@ -17,12 +17,12 @@ public class MeetingServiceStub implements IMeetingService {
 	@Override
 	public MeetingDTO GetMeeting(int meetingId) {
 		// TODO Proper Implementation
-		MeetingDTO m = new MeetingDTO();
-		m.setId(meetingId);
-		m.setTitle("Placeholder Meeting Title");
-		m.setDescription("Placeholder Meeting Description");
-		m.setLocalDateTime("11/19/2019 12:00PM");
-		m.setLocation("University of Cincinnati");
+		MeetingDTO meeting = new MeetingDTO();
+		meeting.setId(meetingId);
+		meeting.setTitle("Placeholder Meeting Title");
+		meeting.setDescription("Placeholder Meeting Description");
+		meeting.setLocalDateTime("11/19/2019 12:00PM");
+		meeting.setLocation("University of Cincinnati");
 		
 		UserDTO o = new UserDTO();
 		o.setId(1);
@@ -31,7 +31,7 @@ public class MeetingServiceStub implements IMeetingService {
 		o.setEmail("john.doe@email.com");
 		o.setPhone("555-555-5555");
 		
-		m.setOrganizer(o);
+		meeting.setOrganizer(o);
 		
 		UserDTO a1 = new UserDTO();
 		a1.setId(2);
@@ -48,9 +48,9 @@ public class MeetingServiceStub implements IMeetingService {
 		a2.setPhone("557-555-5557");
 		
 		UserDTO[] attendees = {a1, a2};
-		m.setAttendees(attendees);
+		meeting.setAttendees(attendees);
 		
-		return m;
+		return meeting;
 	}
 
 	@Override

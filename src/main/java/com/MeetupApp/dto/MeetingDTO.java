@@ -65,6 +65,7 @@ public class MeetingDTO {
 		Attendees = attendees;
 	}
 
+	/*
 	public void Modify(MeetingDTO meeting) {
 		// UNIMPLEMENTED
 	}
@@ -75,5 +76,5 @@ public class MeetingDTO {
 	
 	public void DeleteUser(int userId) {
 		// UNIMPLEMENTED
-	}
+	}*/
 }
