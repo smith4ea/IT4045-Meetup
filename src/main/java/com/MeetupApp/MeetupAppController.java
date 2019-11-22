@@ -21,7 +21,14 @@ public class MeetupAppController {
 	@RequestMapping(value="/meeting/{meetingId}", method=RequestMethod.GET)
 	public ModelAndView getMeeting(@PathVariable int meetingId) {
 		ModelAndView modelAndView = new ModelAndView();
-		MeetingDTO meeting = meetingServiceStub.GetMeeting(meetingId);
+		MeetingDTO meeting;
+		try {
+			meeting = meetingServiceStub.GetMeeting(meetingId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 		modelAndView.setViewName("meeting");
 		modelAndView.addObject("meeting", meeting);
 
@@ -31,20 +38,39 @@ public class MeetupAppController {
 	@RequestMapping(value="/meeting", method=RequestMethod.POST)
 	public void createMeeting() {
 		// TODO: Get meeting object from body
-		meetingServiceStub.CreateMeeting(new MeetingDTO());
+		try {
+			meetingServiceStub.CreateMeeting(new MeetingDTO());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@RequestMapping(value="/manage-meeting-user/{meetingId}", method=RequestMethod.POST)
 	public void addUserMeeting(@PathVariable int meetingId) {
 		// TODO: Get user object from body
-		MeetingDTO meeting = meetingServiceStub.GetMeeting(meetingId);
+		MeetingDTO meeting;
+		try {
+			meeting = meetingServiceStub.GetMeeting(meetingId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		}
 		meeting.AddUser(new UserDTO());
 	}
 	
 	@RequestMapping(value="/manage-meeting-user/{meetingId}/{userId}", method=RequestMethod.DELETE)
 	public void deleteUserMeeting(@PathVariable int meetingId, @PathVariable int userId) {
 		// TODO: Proper implementation
-		MeetingDTO meeting = meetingServiceStub.GetMeeting(meetingId);
+		MeetingDTO meeting;
+		try {
+			meeting = meetingServiceStub.GetMeeting(meetingId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		}
 		meeting.DeleteUser(userId);
 	}
 	
