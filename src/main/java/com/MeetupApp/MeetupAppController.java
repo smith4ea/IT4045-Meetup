@@ -21,10 +21,18 @@ public class MeetupAppController {
 	@RequestMapping(value="/meeting/{meetingId}", method=RequestMethod.GET)
 	public ModelAndView getMeeting(@PathVariable int meetingId) {
 		ModelAndView modelAndView = new ModelAndView();
+		try {
 		MeetingDTO meeting = meetingServiceStub.GetMeeting(meetingId);
 		modelAndView.setViewName("meeting");
 		modelAndView.addObject("meeting", meeting);
 
+		
+		}
+		catch(Exception e){
+			// create an error page letting the user know something went wrong and repeat for the other mappings
+			return null;
+
+		}
 		return modelAndView;
 	}
 	
