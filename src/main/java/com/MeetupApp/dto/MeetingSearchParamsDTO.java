@@ -38,10 +38,10 @@ public class MeetingSearchParamsDTO {
 	public void setCategory(String category) {
 		Category = category;
 	}
-	public Boolean getMatchAll() {
-		return MatchAll;
+	public Boolean getMatchingMeeting() {
+		return MatchingMeeting;
 	}
-	public void setMatchAll(Boolean matchAll) {
-		MatchAll = matchAll;
+	public void setMatchingMeeting(Boolean matchingMeeting) {
+		MatchingMeeting = matchMeeting;
 	}
 }
