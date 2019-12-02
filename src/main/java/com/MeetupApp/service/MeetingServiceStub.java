@@ -6,6 +6,12 @@ import com.MeetupApp.dto.MeetingDTO;
 import com.MeetupApp.dto.MeetingSearchParamsDTO;
 import com.MeetupApp.dto.UserDTO;
 
+/**
+Service Stub that mocks Create Meeting, Get Meeting
+and FindMeeting methods
+*/
+
+
 @Component
 public class MeetingServiceStub implements IMeetingService {
 
