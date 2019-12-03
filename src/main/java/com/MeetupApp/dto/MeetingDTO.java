@@ -1,4 +1,5 @@
 package com.MeetupApp.dto;
+import com.MeetupApp.dto.UserDTO;
 
 public class MeetingDTO {
 	int Id;
@@ -70,10 +71,11 @@ public class MeetingDTO {
 	}
 	
 	public void AddUser(UserDTO user) {
-		// UNIMPLEMENTED
+		UserDTO[] = UserDTO[].add(user);
 	}
 	
 	public void DeleteUser(int userId) {
-		// UNIMPLEMENTED
+		UserDTO TempUser = getUser(userId);
+		UserDTO[] = UserDTO[].remove(TempUser);
 	}
 }
